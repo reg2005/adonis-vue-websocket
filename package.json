@@ -1,0 +1,28 @@
+{
+  "name": "adonis-vue-websocket",
+  "version": "1.0.0",
+  "description": "Simple client for communicate VueJS and AdonisJS throught websocket",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reg2005/adonis-vue-websocket.git"
+  },
+  "keywords": [
+    "VueJS",
+    "AdonisJS",
+    "Websocket",
+    "WS"
+  ],
+  "author": "Evgeniy Ryumin cmp08@ya.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reg2005/adonis-vue-websocket/issues"
+  },
+  "homepage": "https://github.com/reg2005/adonis-vue-websocket#readme",
+  "dependencies": {
+    "vue": "^2.*"
+  }
+}
