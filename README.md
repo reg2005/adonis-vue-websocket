@@ -1,13 +1,35 @@
-#Adonis websocket client for VueJS
+# Adonis websocket client for VueJS
+## How it works
+This package add new layer for use original AdonisWSClient in your vue.js project:
+```js
+//For global acceess
+Vue.ws
 
-
-##Install
-```bash
-npm install adonis-vue-websocket or yarn add adonis-vue-websocket
+//In vue component
+this.$ws
 ```
-##Usage
+For example you can handle adonisWS events in your vue components:
+```js
+this.$ws.$on(`${topicName}|ABOUT_MESSAGE`, d => console.log(d)) 
+```
+Emit events from Vue components you can:
+```js
+//if this topic does not exist, $emitToServer automatic trying to create it
+this.$ws.$emitToServer(topicName, 'hello', {message: 'message})
+```
 
-###1. Connect plugin
+## Install
+npm
+```bash
+npm install adonis-vue-websocket
+```
+yarn
+```bash
+yarn add adonis-vue-websocket
+```
+## Usage
+
+### 1. Connect plugin
 You can to plug original [AdonisWSClient](https://github.com/adonisjs/adonis-websocket-client) and connect with library:
 ```js
 import Ws from '@adonisjs/websocket-client'
@@ -27,7 +49,7 @@ import WsPlugin from 'adonis-vue-websocket'
 Vue.use(WsPlugin, { adonisWS: window.adonis.Ws })
 ```
 
-##2. Init connection
+## 2. Init connection
 Create file src/WsSubscriptions.js with content:
 ```js
 import Vue from "vue";
@@ -92,7 +114,7 @@ export default {
 }
 </script>
 ```
-###3. Handle and emit events
+### 3. Handle and emit events
 You can handle events in any .js and .vue files and components, for example in vue component:
 ```js
 <template>
@@ -131,17 +153,25 @@ export default {
 </script>
 ```
 
+## Profit!
 
-##Run tests
-###In first terminal
+---
+
+## Test
+```bash
+git clone https://github.com/reg2005/adonis-vue-websocket.git
+cd adonis-vue-websocket
+```
+### In first terminal
 ```bash
 cd example/back
 npm install
 adonis serve --dev
 ```
-###In second terminal
+### In second terminal
 ```bash
 cd example/front 
 npm install
 yarn serve
 ```
+And open front in your browser
