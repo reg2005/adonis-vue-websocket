@@ -69,7 +69,17 @@ const userTopicSubscriptions = id => {
 export default async () => {
   return new Promise((resolve, reject) => {
     Vue.ws.disconnect()
-    Vue.ws.connect("", "ws://localhost:3333", { path: 'adonis-ws', reconnectionAttempts: 300, reconnectionDelay: 5000 });
+    Vue.ws.connect(
+        {
+            url: "ws://localhost:3333", 
+            jwtToken: null
+        }, 
+        { 
+            path: 'adonis-ws', 
+            reconnectionAttempts: 300, 
+            reconnectionDelay: 5000 
+        }
+    );
     Vue.ws.socket.on("open", () => {
       userTopicSubscriptions(1);
       resolve()

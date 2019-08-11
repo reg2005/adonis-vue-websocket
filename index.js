@@ -45,7 +45,7 @@ class WsPlugin extends Vue{
         }
         subscription.emit(eventName, data)
     }
-    connect(token, wsDomain, options) {
+    connect({ wsDomain, jwtToken = null } = {}, options = {}) {
         if (!this.adonisWS || this.adonisWS === undefined) {
             throw new Error('Please define adonisWs in Vue.use(WsPlugin, { adonisWS: window.adonis.Ws })')
         }
@@ -53,8 +53,8 @@ class WsPlugin extends Vue{
             throw new Error('Socket is already connected')
         }
         const ws = new this.adonisWS(wsDomain, options)
-        if (token) {
-            ws.withJwtToken(token)
+        if (jwtToken) {
+            ws.withJwtToken(jwtToken)
         }
         this.socket = ws.connect()
         this.socket.on('open', () => {
