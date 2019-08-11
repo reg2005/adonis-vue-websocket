@@ -71,7 +71,7 @@ export default async () => {
     Vue.ws.disconnect()
     Vue.ws.connect(
         {
-            url: "ws://localhost:3333", 
+            wsDomain: "ws://localhost:3333", 
             jwtToken: null
         }, 
         { 
