@@ -175,6 +175,7 @@ cd adonis-vue-websocket
 ### In first terminal
 ```bash
 cd example/back
+cp .env.example .env
 npm install
 adonis serve --dev
 ```
