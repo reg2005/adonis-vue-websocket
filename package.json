@@ -1,6 +1,6 @@
 {
   "name": "adonis-vue-websocket",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Simple client for communicate VueJS and AdonisJS throught websocket",
   "main": "index.js",
   "scripts": {
