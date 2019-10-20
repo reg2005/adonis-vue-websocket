@@ -91,7 +91,7 @@ class WsPlugin extends Vue{
     disconnect() {
         try {
             if (this.socket){
-                this.socket.offAny(anyListener)
+                this.socket.offAny(this.anyListener)
                 this.socket.close()
                 this.socket = null
             }
